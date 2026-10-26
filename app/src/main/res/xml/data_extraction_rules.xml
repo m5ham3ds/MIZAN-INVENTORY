@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- Do not sync crash reports or crash-recovery markers to cloud backup. -->
+        <exclude domain="file" path="crash-reports/" />
+        <exclude domain="sharedpref" path="mizan_crash_diagnostics.xml" />
+    </cloud-backup>
+    <device-transfer>
+        <!-- A device transfer must not reopen a report from another device/session. -->
+        <exclude domain="file" path="crash-reports/" />
+        <exclude domain="sharedpref" path="mizan_crash_diagnostics.xml" />
+    </device-transfer>
+</data-extraction-rules>

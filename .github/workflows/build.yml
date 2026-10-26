@@ -1,0 +1,81 @@
+name: Build Mizan Inventory APK
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch: # يتيح لك تشغيل البناء يدويًا من واجهة GitHub بزر واحد
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mizan-inventory-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build & Package APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Ensure Debug Keystore Exists
+        run: |
+          if [ ! -f debug.keystore ]; then
+            if [ -f debug.keystore.base64 ]; then
+              base64 -d debug.keystore.base64 > debug.keystore
+              echo "Restored debug.keystore from base64."
+            else
+              keytool -genkeypair -v \
+                -keystore debug.keystore \
+                -storepass android \
+                -alias androiddebugkey \
+                -keypass android \
+                -keyalg RSA \
+                -keysize 2048 \
+                -validity 10000 \
+                -dname "CN=Android Debug,O=Android,C=US"
+              echo "Generated a new debug.keystore."
+            fi
+          fi
+
+      - name: Ensure .env.example Exists
+        run: |
+          if [ ! -f .env.example ]; then
+            touch .env.example
+          fi
+
+      - name: Run Unit & Robolectric Tests
+        run: ./gradlew :app:testDebugUnitTest --no-daemon --stacktrace --console=plain
+
+      - name: Assemble Debug APK
+        run: ./gradlew :app:assembleDebug --no-daemon --stacktrace --console=plain
+
+      - name: Rename Output APK
+        run: |
+          mkdir -p output_apk
+          cp app/build/outputs/apk/debug/app-debug.apk output_apk/Mizan_Inventory_v1.0.apk
+          echo "Created output_apk/Mizan_Inventory_v1.0.apk"
+
+      - name: Upload Mizan Inventory APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: Mizan_Inventory_v1.0_APK
+          path: output_apk/Mizan_Inventory_v1.0.apk
+          if-no-files-found: error
+          retention-days: 14
+          

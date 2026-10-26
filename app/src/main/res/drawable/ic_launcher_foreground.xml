@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Center scale beam and fulcrum -->
+    <path
+        android:fillColor="#0D9488"
+        android:pathData="M52,32h4v36h-4z" />
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M54,26l6,6h-12z" />
+    <path
+        android:fillColor="#2DD4BF"
+        android:pathData="M32,38h44v3h-44z" />
+    <!-- Left pan strings & pan -->
+    <path
+        android:strokeColor="#94A3B8"
+        android:strokeWidth="1.5"
+        android:pathData="M34,41l-8,14M34,41l8,14" />
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M24,55c0,6 18,6 18,0z" />
+    <!-- Right pan strings & pan -->
+    <path
+        android:strokeColor="#94A3B8"
+        android:strokeWidth="1.5"
+        android:pathData="M74,41l-8,14M74,41l8,14" />
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M64,55c0,6 18,6 18,0z" />
+    <!-- Base pedestal -->
+    <path
+        android:fillColor="#0D9488"
+        android:pathData="M40,68h28v4h-28z" />
+    <path
+        android:fillColor="#2DD4BF"
+        android:pathData="M34,72h40v3h-40z" />
+</vector>

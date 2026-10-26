@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Crash diagnostics are local troubleshooting data; do not restore stale pending reports. -->
+    <exclude domain="file" path="crash-reports/" />
+    <exclude domain="sharedpref" path="mizan_crash_diagnostics.xml" />
+</full-backup-content>

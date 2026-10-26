@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">ميزان المخزون</string>
+    <string name="app_tagline">نظام إدارة المخزون والعمليات التجارية متعدد العملات</string>
+    
+    <!-- Navigation Tabs -->
+    <string name="nav_dashboard">لوحة التحكم</string>
+    <string name="nav_inventory">المخزون</string>
+    <string name="nav_operations">العمليات</string>
+    <string name="nav_reports">التقارير</string>
+    <string name="nav_settings">الإعدادات</string>
+    <string name="nav_currencies">العملات وأسعار الصرف</string>
+
+    <!-- Phase Tags & Status -->
+    <string name="phase_tag">المرحلة 2: تكوين العملات وأسعار الصرف</string>
+    <string name="phase_1_tag">المرحلة 1: التأسيس المعماري</string>
+    <string name="phase_2_tag">المرحلة 2: تكوين العملات وأسعار الصرف اليدوية</string>
+    <string name="system_ready">البنية البرمجية جاهزة ومستقرة</string>
+    <string name="financial_precision_active">محرك الدقة المالية (BigDecimal) نشط</string>
+    <string name="architecture_title">البنية الهندسية للتطبيق</string>
+    <string name="architecture_desc">تم بناء التطبيق وفق معمارية Clean / MVVM مفصولة الطبقات، مع تمثيل مالي دقيق يمنع أخطاء التقريب العشري.</string>
+
+    <!-- Sections status -->
+    <string name="dashboard_subtitle">نظرة عامة على النظام وحالة البنية</string>
+    <string name="inventory_title">إدارة الأصناف والمستودعات</string>
+    <string name="inventory_notice">سيتم تفعيل سجل المخزون والأصناف وحركات المستودعات في المرحلة المخصصة.</string>
+    <string name="operations_title">المشتريات والمبيعات</string>
+    <string name="operations_notice">سيتم تفعيل فواتير المشتريات والمبيعات وحركات الصناديق في المراحل اللاحقة.</string>
+    <string name="reports_title">التقارير المالية والتحليلية</string>
+    <string name="reports_notice">سيتم بناء تقارير الأرباح وتكاليف البضائع وموازين المراجعة بعد اكتمال طبقة البيانات.</string>
+    <string name="settings_title">إعدادات النظام والعملات</string>
+    <string name="settings_notice">إعدادات الحسابات والعملات الأساسية والتخزين المحلي.</string>
+    
+    <!-- Status Labels -->
+    <string name="status_foundation_only">جاهز للتطوير المرحلي</string>
+    <string name="financial_principle">مبدأ عدم خلط العملات والدقة العشرية الصارمة</string>
+</resources>
